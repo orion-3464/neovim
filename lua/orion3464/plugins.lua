@@ -11,4 +11,14 @@ return require('packer').startup(function(use)
 	    require("nvim-autopairs").setup {}
 	end
     }
+
+    use 'Mofiqul/dracula.nvim'
+
+    use({ 
+	'rose-pine/neovim', 
+	as = 'rose-pine',
+	config = function() 
+	    require('orion3464.plugins.rose')
+	end
+    })
 end)
