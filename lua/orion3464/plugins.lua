@@ -12,7 +12,12 @@ return require('packer').startup(function(use)
 	end
     }
 
-    use 'Mofiqul/dracula.nvim'
+    use({
+	'Mofiqul/dracula.nvim',
+	config = function()
+	    require('orion3464.plugins.dracula')
+	end
+    }) 
 
     use({ 
 	'rose-pine/neovim', 
