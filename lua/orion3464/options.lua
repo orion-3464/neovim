@@ -16,7 +16,7 @@ opt.textwidth = 300
 opt.softtabstop = -1
 
 -- Scrolling options
-opt.scrolloff = 999
+opt.scrolloff = 10
 opt.wrap = false
 
 -- Search options
