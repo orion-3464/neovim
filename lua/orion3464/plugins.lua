@@ -50,5 +50,18 @@ return require('packer').startup(function(use)
             require('orion3464.plugins.treesitter')
         end
     }
+    
+    -- File System Navigation
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', 
+        },
+
+        config = function()
+            require('orion3464.plugins.tree')
+        end
+
+}
 
 end)
