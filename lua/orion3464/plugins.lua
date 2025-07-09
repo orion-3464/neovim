@@ -61,7 +61,5 @@ return require('packer').startup(function(use)
         config = function()
             require('orion3464.plugins.tree')
         end
-
-}
-
+    }
 end)
