@@ -1,8 +1,14 @@
--- Buffer navigation
-
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '[b', ':bprevious<CR>', opts)
-vim.keymap.set('n', ']b', ':bnext<CR>', opts)
-vim.keymap.set('n', '[B', ':bfirst<CR>', opts)
-vim.keymap.set('n', ']B', ':blast<CR>', opts)
+local function map(mode, shortcut, command)
+    vim.keymap.set(mode, shortcut, command, opts)
+end
+
+
+-- Buffer navigation
+
+map('n', '[b', ':bprevious<CR>')
+map('n', ']b', ':bnext<CR>')
+map('n', '[B', ':bfirst<CR>')
+map('n', ']B', ':blast<CR>')
+
