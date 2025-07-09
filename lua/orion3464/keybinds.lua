@@ -4,7 +4,6 @@ local function map(mode, shortcut, command)
     vim.keymap.set(mode, shortcut, command, opts)
 end
 
-
 -- Buffer navigation
 
 map('n', '[b', ':bprevious<CR>')

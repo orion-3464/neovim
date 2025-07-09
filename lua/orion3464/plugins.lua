@@ -64,4 +64,8 @@ return require('packer').startup(function(use)
             require('orion3464.plugins.tree')
         end
     }
+
+    -- Tab management
+    use 'lewis6991/gitsigns.nvim'
+    use 'romgrk/barbar.nvim'
 end)
