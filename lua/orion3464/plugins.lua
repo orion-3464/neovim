@@ -68,4 +68,7 @@ return require('packer').startup(function(use)
     -- Tab management
     use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
+
+    -- Git plugins
+    use 'NeogitOrg/neogit'
 end)
