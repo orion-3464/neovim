@@ -69,6 +69,15 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'romgrk/barbar.nvim'
 
+    -- LSP 
+    use {
+        'neovim/nvim-lspconfig',
+
+        config = function()
+            require('orion3464.plugins.lsp')
+        end
+    }
+
     -- Git plugins
     use 'NeogitOrg/neogit'
 end)
