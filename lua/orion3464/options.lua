@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 -- Editor UI options
 opt.number = true
@@ -36,3 +37,8 @@ opt.clipboard = 'unnamedplus'
 vim.g.loaded_ruby_provider = 0
 vim.g.python3_host_prog = '~/.venvs/nvim/bin/python3'
 vim.g.loaded_perl_provider = 0
+
+
+-- Map leader to SPACE
+g.mapleader = ' '
+g.maplocalleader = ' '
