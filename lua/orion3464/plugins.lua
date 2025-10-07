@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
 	        require("nvim-autopairs").setup {}
 	    end
     }
-    
+
     -- Themes and status line
     use 'nvim-tree/nvim-web-devicons'
 
@@ -30,12 +30,12 @@ return require('packer').startup(function(use)
 	    config = function()
 	        require('orion3464.plugins.dracula')
 	    end
-    }) 
+    })
 
-    use({ 
-	    'rose-pine/neovim', 
+    use({
+	    'rose-pine/neovim',
 	    as = 'rose-pine',
-	    config = function() 
+	    config = function()
 	        require('orion3464.plugins.rose')
 	    end
     })
@@ -52,12 +52,12 @@ return require('packer').startup(function(use)
             require('orion3464.plugins.treesitter')
         end
     }
-    
+
     -- File System Navigation
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
-            'nvim-tree/nvim-web-devicons', 
+            'nvim-tree/nvim-web-devicons',
         },
 
         config = function()
@@ -72,12 +72,56 @@ return require('packer').startup(function(use)
     -- LSP 
     use {
         'neovim/nvim-lspconfig',
+        event = 'BufRead',
 
         config = function()
-            require('orion3464.plugins.lsp')
-        end
+            require('orion3464.plugins.lsp.servers')
+        end,
+
+        requires = {
+                {
+                    -- WARN: Unfortunately we won't be able to lazy load this
+                    'hrsh7th/cmp-nvim-lsp',
+                },
+            },
     }
 
-    -- Git plugins
+    use({
+            'jose-elias-alvarez/null-ls.nvim',
+            event = 'BufRead',
+--            config = function()
+--                require('numToStr.plugins.lsp.null-ls')
+--            end,
+        })
+
+    use({
+        {
+            'hrsh7th/nvim-cmp',
+            event = 'InsertEnter',
+            config = function()
+                require('orion3464.plugins.completion')
+            end,
+            requires = {
+                {
+                    'L3MON4D3/LuaSnip',
+                    event = 'InsertEnter',
+--                    config = function()
+--                        require('numToStr.plugins.lsp.luasnip')
+--                    end,
+                    requires = {
+                        {
+                            'rafamadriz/friendly-snippets',
+                            event = 'CursorHold',
+                        },
+                    },
+                },
+            },
+        },
+        { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+        { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+    })
+
+        -- Git plugins
     use 'NeogitOrg/neogit'
 end)
