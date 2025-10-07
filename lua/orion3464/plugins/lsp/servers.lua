@@ -34,7 +34,7 @@ end
 -- =========================
 -- Enable simple LSP servers (lua_ls, pyright, etc.)
 -- =========================
-local simple_servers = { "lua_ls" }
+local simple_servers = { "lua_ls", "pyright" }
 
 for _, server in ipairs(simple_servers) do
     vim.lsp.enable({ server }, {
